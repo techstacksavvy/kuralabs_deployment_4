@@ -90,3 +90,5 @@ Another challenge I encountered was getting my Cypress test to pass. According t
 Sasheeny Hubbard
 
 Deployment 4 Diagram
+
+![](images/Deployment4Diagram.png)
