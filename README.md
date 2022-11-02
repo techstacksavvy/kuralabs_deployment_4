@@ -6,8 +6,12 @@
 - Install Jenkins on an EC2 (if you haven’t already) with an Ubuntu image and add ports 22 and 8080
 - Install Terraform on your Jenkins server (see the link below for guidance)
   https://www.terraform.io/downloads
-![](jenkinsmaster.png)
-![](terraforminstall.png)
+  
+![](images/jenkinsmaster.png)
+
+
+![](images/terraforminstall.png)
+
 ## Access the UI of the Jenkins server EC2 (i.e. public_ip:8080)
 ###### Add AWS access key and secret to your Jenkins credentials 
 - In the Jenkins Dashboard, click on manage Jenkins and then select Manage Credentials:
@@ -31,11 +35,12 @@ https://github.com/kura-labs-org/kuralabs_deployment_4
 ###### There may be some lines you want to update to suit your main.tf file :wink: 
 For example region, key_name, and ami_id to name a few.
 
-![](maintfedits.png)
+![](images/maintfedits.png)
 
 ## Next, Create a Pipeline build in Jenkins:
 
-![](firstbuild.png)
+![](images/firstbuild.png)
+
 ###### Once you have successfully run your deployment and check your application. Add a destroy stage to the Jenkinsfile:
 
 ```
@@ -53,7 +58,7 @@ stage('Destroy') {
  }
 ```
 
-![](secondbuild.png)
+![](images/secondbuild.png)
 
 ## Create a VPC and deploy your Url-Shortener application to it
 Utilize the Terraform documentation in the links below to get started
@@ -63,10 +68,11 @@ https://registry.terraform.io/modules/terraform-aws-modules/vpc/aws/latest
 https://registry.terraform.io/modules/terraform-aws-modules/security-group/aws/latest
 
 ## Challenges
+
 ###### Original Build
 One of the challenges I faced while completing this deployment was getting my build to run successfully after adding the destroy block to the Jenkinsfile. I later realized that it was failing due to syntax issues toward the end of the file. Once I rectified the syntax error, I was able to get the build to complete all stages including init, plan, apply and destroy. 
 
-![](secondbuild.png)
+![](images/secondbuild.png)
 
 
 
